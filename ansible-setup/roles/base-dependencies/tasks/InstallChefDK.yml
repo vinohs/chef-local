@@ -1,0 +1,31 @@
+--
+- local_action: stat path=/Applications/{{ appName }}.app
+  register: app_exists
+
+- name: Make a temp directory for holding the dmg file
+  command: mkdir -p ./tmp/
+  when: app_exists.stat.exists == False 
+
+- name: Download chefdk
+  get_url: url="{{ chefdk_url_dmg }}" dest=./tmp/{{ appName }}.dmg
+  when: app_exists.stat.exists == False 
+
+- name: Mount and install
+  command: hdiutil attach ./tmp/{{ appName }}.dmg -nobrowse -mountpoint ./tmp/{{ appName }}
+  when: app_exists.stat.exists == False
+
+- name: Move the ChefDK to the right folder
+  shell: cp -aR ./tmp/{{ appName }}/*.app /Applications/{{ appName }}.app
+  when: app_exists.stat.exists == False
+
+- name: Detach the mounted install volume
+  command: hdiutil detach ./tmp/{{ appName }}/
+  when: app_exists.stat.exists == False
+
+- name: Cleanup temp directory
+  command: rm -R ./tmp/
+  when: app_exists.stat.exists == False
+
+- name: Verify the components for chefdk
+  command: chef verify
+
