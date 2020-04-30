@@ -1,0 +1,14 @@
+---
+galaxy_info:
+  author: Vino
+  description: "Install base dependencies on the mac workstation"
+  license: MIT
+  
+  min_ansible_version: 1.9.0
+ 
+  platforms:
+  - name: Ubuntu
+    versions:
+    - xenial
+
+dependencies: []
