@@ -22,26 +22,16 @@ if [[ ! -x "/usr/local/bin/brew" ]]; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
-brew tap homebrew/dupes
-
-# Install Python 2
-if [[ ! -d "/usr/local/Cellar/python" ]]; then
-    echo "Installing python 2"
-    brew install python --with-berkeley-db4 --with-tcl-tk
-fi
-
 # Install Python 3
 if [[ ! -d "/usr/local/Cellar/python3" ]]; then
     echo "Installing python 3"
-    brew install python3 --with-tcl-tk
+    brew install python3
 fi
 
-# Update Pip2 packages
-/usr/local/bin/pip2 install -U pip setuptools wheel
 /usr/local/bin/pip3 install -U pip setuptools wheel
 
 # Install Ansible
 if [[ ! -x "/usr/local/bin/ansible" ]]; then
     echo "Installing ansible"
-    /usr/local/bin/pip2 install ansible kerberos pywinrm
+    /usr/local/bin/pip3 install ansible 
 fi
