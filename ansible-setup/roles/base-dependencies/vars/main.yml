@@ -2,3 +2,5 @@
 # vars file for roles/base-dependencies
 chefdk_version: 3.11.3
 chefdk_url_dmg : https://packages.chef.io/files/stable/chefdk/{{ chefdk_version }}/mac_os_x/10.13/chefdk-{{ chefdk_version }}-1.dmg
+vagrant_version: 2.2.7
+vagrant_url_dmg: https://releases.hashicorp.com/vagrant/{{ vagrant_version }}/vagrant_{{ vagrant_version }}_x86_64.dmg

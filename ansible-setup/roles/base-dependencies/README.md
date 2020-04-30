@@ -11,7 +11,9 @@ Role Variables
 --------------
 chefdk_version: Chef Development Kit version to install (default: 3.11.3)
 chefdk_url_dmg: URL to obtain the chefdk from.
-chefdk_tmp_dir
+vagrant_version: Vagrant version to install
+vagrant_url_dmg: URL to obtain the vagrant dmg from 
+
 
 Example Playbook
 ----------------

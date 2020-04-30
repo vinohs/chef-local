@@ -4,7 +4,7 @@
   include_vars: "{{ ansible_distribution }}.yml"
 
 - include: InstallChefDK.yml
-
+- include: InstallVagrant.yml
 
 
 
